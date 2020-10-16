@@ -15,6 +15,12 @@ If you are using Yarn:
 yarn add site-search-360-vue
 ```
 
+You can also load the component using a script tag:
+
+```
+<script src="https://unpkg.com/site-search-360-vue@latest"></script>
+```
+
 ## Usage
 To add Site Search 360 (search box and a search button) to your site, use the `SiteSearch360` component.
 
