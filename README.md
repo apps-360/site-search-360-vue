@@ -1,8 +1,8 @@
 
-[![site search 360 logo](sitesearch360.svg)](https://sitesearch360.com/)
+[![site search 360 logo](sitesearch360.svg)](https://sitesearch360.com/?utm_source=npm&utm_medium=vue-component&utm_campaign=ss360-js-libraries)
 
 # Site Search 360 Vue Component
-The Site Search 360 Vue component provides a simple way of adding [Site Search 360](https://sitesearch360.com) to your Vue app.
+The Site Search 360 Vue component provides a simple way of adding [Site Search 360](https://sitesearch360.com/?utm_source=npm&utm_medium=vue-component&utm_campaign=ss360-js-libraries) to your Vue app.
 
 ## Installation
 If you are using NPM:
@@ -39,7 +39,7 @@ createElement(SiteSearch360, {
 
 ```
 
-Make sure to use your `siteId` to connect the search to your account. The value of the `siteId` prop can be found under **Account > Profile** after [signing up to Site Search 360](https://control.sitesearch360.com/signup).
+Make sure to use your `siteId` to connect the search to your account. The value of the `siteId` prop can be found under **Account > Profile** after [signing up to Site Search 360](https://control.sitesearch360.com/signup?utm_source=npm&utm_medium=vue-component&utm_campaign=ss360-js-libraries).
 
 ## Props
 
@@ -47,7 +47,7 @@ Make sure to use your `siteId` to connect the search to your account. The value 
 The Site ID of your Site Search 360 account. This setting can also be set in the `ss360Config` prop.
 
 #### `ss360Config` (Object)
-Site Search 360 configuration object. See the [Site Search 360 installation docs](https://docs.sitesearch360.com/installation?ss360SearchTerm=Configuration%20Options) for more details.
+Site Search 360 configuration object. See the [Site Search 360 installation docs](https://docs.sitesearch360.com/installation?ss360SearchTerm=Configuration%20Options&utm_source=npm&utm_medium=vue-component&utm_campaign=ss360-js-libraries) for more details.
 
 #### `showButton` (Boolean)
 Whether to display a search button. Default: `true`
