@@ -92,7 +92,7 @@ export default {
 			const script = document.createElement('script');
 			script.setAttribute('defer', 'defer');
 			script.setAttribute('id', 'ss360-script');
-			script.src = 'https://cdn.sitesearch360.com/v13/sitesearch360-v13--beta.min.js';
+			script.src = 'https://cdn.sitesearch360.com/v13/sitesearch360-v13_3--beta.min.js';
 			document.getElementsByTagName('body')[0].appendChild(script);
 		} else if ('initializeSs360' in window) { // reinitialize script
 			window.initializeSs360();
