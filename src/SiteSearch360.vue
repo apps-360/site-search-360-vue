@@ -14,8 +14,7 @@ export default {
 	name: 'SiteSearch360',
 	props: {
 		ss360Config: {
-			type: Object,
-			default: () => ({})
+			type: Object
 		},
 		siteId: {
 			type: String
@@ -27,6 +26,9 @@ export default {
 		applyStyling: {
 			type: Boolean,
 			default: true
+		},
+		alias: {
+			type: String
 		}
 	},
 	data() {
@@ -40,7 +42,7 @@ export default {
 			// ensure config exists and set selectors
 			let ss360Config = window.ss360Config;
 
-			if (ss360Config === undefined) {
+			if (ss360Config === undefined || (this.alias !== undefined && this.ss360Config !== undefined)) {
 				ss360Config = this.ss360Config;
 			}
 
@@ -82,7 +84,14 @@ export default {
 				ss360Config.siteId = this.siteId;
 			}
 
-			window.ss360Config = ss360Config;
+			if (this.alias === undefined) {
+				window.ss360Config = ss360Config;
+			} else {
+				if (!('ss360Configs' in window)) {
+					window.ss360Configs = {};
+				}
+				window.ss360Configs[this.alias] = ss360Config;
+			}
 		}
 	},
 	mounted() {
