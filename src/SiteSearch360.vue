@@ -1,7 +1,7 @@
 <template>
   <section :data-ss360="applyStyling" class="ss360-search">
-    <input type="search" :class="SEARCH_BOX_CLASS_NAME" />
-    <button v-if="showButton" :class="SEARCH_BUTTON_CLASS_NAME"></button>
+    <input type="search" :class="searchBoxClassName" />
+    <button v-if="showButton" :class="searchButtonClassName"></button>
     <slot></slot>
   </section>
 </template>
@@ -31,11 +31,13 @@ export default {
 			type: String
 		}
 	},
-	data() {
-		return {
-			SEARCH_BOX_CLASS_NAME,
-			SEARCH_BUTTON_CLASS_NAME
-		};
+	computed: {
+		searchBoxClassName() {
+			return this.alias === undefined || this.alias.length === 0 ? SEARCH_BOX_CLASS_NAME : `${SEARCH_BOX_CLASS_NAME}--${this.alias}`;
+		},
+		searchButtonClassName() {
+			return this.alias === undefined || this.alias.length === 0 ? SEARCH_BUTTON_CLASS_NAME : `${SEARCH_BUTTON_CLASS_NAME}--${this.alias}`;
+		}
 	},
 	methods: {
 		ensureConfig() {
@@ -66,18 +68,18 @@ export default {
 
 			let { selector, searchButton } = searchBox;
 
-			if (selector.indexOf(`.${SEARCH_BOX_CLASS_NAME}`) === -1) {
+			if (selector.indexOf(`.${this.searchBoxClassName}`) === -1) {
 				if (selector.length > 0) {
 					selector = `${selector},`;
 				}
-				searchBox.selector = `${selector}.${SEARCH_BOX_CLASS_NAME}`;
+				searchBox.selector = `${selector}.${this.searchBoxClassName}`;
 			}
 
-			if (searchButton.indexOf(`.${SEARCH_BUTTON_CLASS_NAME}`) === -1) {
+			if (searchButton.indexOf(`.${this.searchButtonClassName}`) === -1) {
 				if (searchButton.length > 0) {
 					searchButton = `${searchButton},`;
 				}
-				searchBox.searchButton = `${searchButton}.${SEARCH_BUTTON_CLASS_NAME}`;
+				searchBox.searchButton = `${searchButton}.${this.searchButtonClassName}`;
 			}
 
 			if (this.siteId !== undefined) {
